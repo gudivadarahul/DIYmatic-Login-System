@@ -1,0 +1,37 @@
+extends layout
+
+block content
+  img(src="#{user.picture}")
+  h2 Welcome #{user.nickname}!
+  br
+  a(href='/logout') Logout
+  a(href="/")  Home
+
+  create-div
+    h1 Create Guide
+      .create-form
+        h3 Guide Title
+        input#guideTitle.text-big(type='text')
+        h4 Guide Category
+        select#guideCategory
+          option(value='artistic') Artistic
+          option(value='clothing') Clothing
+          option(value='crafts') Crafts
+          option(value='food') Food
+          option(value='home') Home
+          option(value='outdoors') Outdoors
+          option(value='technology') Technology
+          option(value='workshop') Workshop
+        h4 Materials List
+        input#material1.text-small(type='text')
+        br
+        button#materialbutton Add Another Material
+        h3 Steps
+        h5 Step Instructions
+        textarea#steptext1.text-step
+        h5 Step Picture
+        input#pictext1.file-step(type='file')
+        #addStep.toolbar.clearfix
+          h5 Add Step
+          img(src='img/plus.png', alt='Add')
+        button.submit(onclick='submitGuide()') Submit Guide
